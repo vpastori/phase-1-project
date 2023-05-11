@@ -43,6 +43,9 @@ const renderCards = (dataArray) => {
         name.textContent = `Name: ${cardInfo.name.toUpperCase()}`
         idNum.textContent = `#${cardInfo.id}`
         pokeType.textContent = `Type: ${cardInfo.type.toUpperCase()}`
+        name.style.fontWeight = "bold";
+        idNum.style.fontWeight = "bold";
+        pokeType.style.fontWeight = "bold";
         imgContainer.append(idNum, img, name, pokeType)
 
         img.src = cardInfo.image;

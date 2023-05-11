@@ -1,11 +1,19 @@
 console.log("script js works")
 
+// event listeners
+
+// const navLinks = document.querySelectorAll(".nav-link");
+// navLinks.forEach((link) => link.addEventListener("click", handleNavClick));
+
+// const searchForm = idElement("searchBarForm")
+// searchForm.addEventListener("submit", handleFormSubmit)
+
 const pokedex = document.getElementById('pokedex');
 
 const promises = [];
 for (let i = 1; i <= 151; i++) {
     promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-    .then(response => response.json()));
+        .then(response => response.json()));
 }
 Promise.all(promises).then(results => {
     const pokemon = results.map(data => ({
@@ -15,13 +23,16 @@ Promise.all(promises).then(results => {
         shinyImage: data.sprites["front_shiny"],
         type: data.types.map(type => type.type.name).join(", "),
     }));
-    displayPokemon(pokemon);
+    renderCards(pokemon);
 });
 
-const displayPokemon = pokemon => {
-    console.log(pokemon);
-    const pokemonHTMLstring = pokemon.map(
-        pokeman => `<h2 class="card-number">${pokeman.id}</h2> <li class="card"> <img class="card-image" src="${pokeman.image}"/> <h3 class="card-title">${pokeman.name.toUpperCase()}</h3>`
-        ).join("");
-        pokedex.innerHTML = pokemonHTMLstring;
+const renderCards = (dataArray) => {
+    const cardContainer = document.getElementById("card-container");
+    dataArray.forEach((cardInfo) => {
+        const img = document.createElement("img");
+        img.src = cardInfo.image;
+        cardContainer.appendChild(img);
+    });
 };
+
+

@@ -31,16 +31,17 @@ const renderCards = (dataArray) => {
     cardContainer.innerHTML = "";
     dataArray.forEach((cardInfo) => {
         const imgContainer = document.createElement("div");
+        imgContainer.classList.add("pokemon");
         imgContainer.style.padding = "0";
-        imgContainer.style.border = "none"
+        imgContainer.style.border = "4px solid black"
         const img = document.createElement("img");
         const name = document.createElement("p");
         const idNum = document.createElement("p");
         const pokeType = document.createElement("p")
 
-        name.textContent = cardInfo.name.toUpperCase()
-        idNum.textContent = cardInfo.id
-        pokeType.textContent = cardInfo.type.toUpperCase()
+        name.textContent = `Name: ${cardInfo.name.toUpperCase()}`
+        idNum.textContent = `#${cardInfo.id}`
+        pokeType.textContent = `Type: ${cardInfo.type.toUpperCase()}`
         imgContainer.append(idNum, img, name, pokeType)
 
         img.src = cardInfo.image;

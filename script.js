@@ -44,8 +44,8 @@ const renderCards = (dataArray) => {
     cardContainer.innerHTML = "";
     dataArray.forEach((cardInfo) => {
         const imgContainer = document.createElement("div");
-        imgContainer.style.padding = "5px";
-        imgContainer.style.border = "2px solid var(--dark-grey)"
+        imgContainer.style.padding = "0";
+        imgContainer.style.border = "none"
         const img = document.createElement("img");
         const name = document.createElement("p");
         const idNum = document.createElement("p");

@@ -7,25 +7,28 @@ console.log("script js works")
 // searchForm.addEventListener("submit", handleFormSubmit)
 
 const pokedex = document.getElementById('pokedex');
+let pokemonData = []
 
-const promises = [];
-for (let i = 1; i <= 151; i++) {
-    promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        .then(response => response.json()));
+const fetchPokemonData = () => {
+    const promises = [];
+    for (let i = 1; i <= 151; i++) {
+        promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+            .then(response => response.json()));
+    }
+    return Promise.all(promises).then(results => {
+        pokemonData = results.map(data => ({
+            name: data.name,
+            id: data.id,
+            image: data.sprites["front_default"],
+            shinyImage: data.sprites["front_shiny"],
+            type: data.types.map(type => type.type.name).join(", "),
+        }));
+        return pokemonData;
+    });
 }
-Promise.all(promises).then(results => {
-    const pokemon = results.map(data => ({
-        name: data.name,
-        id: data.id,
-        image: data.sprites["front_default"],
-        shinyImage: data.sprites["front_shiny"],
-        type: data.types.map(type => type.type.name).join(", "),
-    }));
-    renderCards(pokemon);
-});
-
 const renderCards = (dataArray) => {
     const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = "";
     dataArray.forEach((cardInfo) => {
         const imgContainer = document.createElement("div");
         const img = document.createElement("img");
@@ -50,10 +53,20 @@ const addEventListenerToNavLinks = () => {
 
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
-            console.log("clicking link")
+            console.log("clicked link");
+            const category = link.dataset.category;
+            console.log("catagory:", category);
+            const filteredData = pokemonData.filter(pokemon => pokemon.type.includes(category));
+            console.log("filteredData:", filteredData);
+            renderCards(filteredData);
         })
     })
 
 }
-
-addEventListenerToNavLinks()
+fetchPokemonData().then(data => {
+    renderCards(data);
+    addEventListenerToNavLinks();
+})
+.catch(error => {
+    console.error(error);
+});

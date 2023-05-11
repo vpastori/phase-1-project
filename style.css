@@ -3,7 +3,7 @@
     font-size: 4em;
     padding-top: 30px;
     font-weight: bold;
-    color:#2a75bb;
+    color: #2a75bb;
     text-decoration: underline;
     -webkit-text-stroke: 2px black;
 }
@@ -31,11 +31,6 @@ body {
     grid-gap: 20px;
     padding-top: 80px;
     padding-left: 65px;
-}
-
-.card {
-    border: 1px solid black;
-    height: 100%;
 }
 
 nav {

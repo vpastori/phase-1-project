@@ -29,9 +29,22 @@ Promise.all(promises).then(results => {
 const renderCards = (dataArray) => {
     const cardContainer = document.getElementById("card-container");
     dataArray.forEach((cardInfo) => {
+        const imgContainer = document.createElement("div");
         const img = document.createElement("img");
+        const name = document.createElement("p");
+        const idNum = document.createElement("p");
+
+        name.textContent = cardInfo.name.toUpperCase()
+        idNum.textContent = cardInfo.id
+        console.log(name)
+        imgContainer.append(idNum, img, name)
+
         img.src = cardInfo.image;
-        cardContainer.appendChild(img);
+
+        cardContainer.appendChild(imgContainer);
+        // img.addEventListener("click", () => { });
+        // img.addEventListener("mouseenter", addHoverEffect)
+        // img.addEventListener("mouseleave", removeHoverEffect)
     });
 };
 

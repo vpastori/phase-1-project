@@ -1,3 +1,29 @@
-body {
+/* body {
     background-color: #3c5aa6;
-}
+} */
+
+.card-container {
+    border: 2px solid var(--dark-grey);
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  #allNavLinks {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    padding: 0 10px;
+    border-right: 1px solid gray;
+  }
+  
+  .nav-link:last-child {
+    border-right: none;
+  }
+  

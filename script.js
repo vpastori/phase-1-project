@@ -29,6 +29,7 @@ const fetchPokemonData = () => {
 const renderCards = (dataArray) => {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
+    cardContainer.style.textAlign = "center";
     dataArray.forEach((cardInfo) => {
         const imgContainer = document.createElement("div");
         imgContainer.classList.add("pokemon");

@@ -1,12 +1,31 @@
-/* body {
-    background-color: #3c5aa6;
-} */
+.title {
+    text-align: center;
+    font-size: 4em;
+    padding-top: 30px;
+}
+
+
+
+
+body {
+    background-color: #ffcb05;
+}
+
+
+#searchBarWrapper {
+    padding-top: 50px;
+}
+
+
+#navWrapper {
+    padding-top: 65px;
+}
 
 #card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
-    padding-top: 120px;
+    padding-top: 80px;
     padding-left: 65px;
 }
 
@@ -23,9 +42,9 @@ nav {
 ul#allNavLinks {
     display: flex;
     justify-content: space-between;
-    /* spreads out the li elements */
+    font-size: 1.5em;
     width: 80%;
-    /* sets the width to the full width of the parent nav element */
+    font-weight: bold;
 }
 
 .nav-link {
@@ -51,12 +70,10 @@ ul#allNavLinks {
     margin-right: 10px;
     width: 450px;
     height: 40px;
-    /* Add some spacing between the input and button */
 }
 
 #searchSubmit {
-    background-color: #4CAF50;
-    /* Change the button color to green */
+    background-color: #2a75bb;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -66,4 +83,8 @@ ul#allNavLinks {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+#card-container div {
+    border: solid black;
 }

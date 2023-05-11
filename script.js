@@ -77,14 +77,12 @@ const filterCardsBySearch = (searchTerm) => {
         const idMatch = card.id.toString().includes(searchTerm);
         return nameMatch || idMatch;
     });
-    console.log("Filtered cards:", filteredCards);
     renderCards(filteredCards)
 }
 
 const handleFormSubmit = (event) => {
     event.preventDefault();
     const searchTerm = event.target["search-bar"].value.toLowerCase();
-    console.log("search term:", searchTerm);
     filterCardsBySearch(searchTerm);
     event.target.reset();
 }
@@ -100,11 +98,8 @@ const addEventListenerToNavLinks = () => {
 
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
-            console.log("clicked link");
             const category = link.dataset.category;
-            console.log("catagory:", category);
             const filteredData = pokemonData.filter(pokemon => pokemon.type.includes(category));
-            console.log("filteredData:", filteredData);
             renderCards(filteredData);
         })
     })

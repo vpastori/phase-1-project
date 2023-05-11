@@ -2,8 +2,6 @@ console.log("script js works")
 
 // event listeners
 
-// const navLinks = document.querySelectorAll(".nav-link");
-// navLinks.forEach((link) => link.addEventListener("click", handleNavClick));
 
 // const searchForm = idElement("searchBarForm")
 // searchForm.addEventListener("submit", handleFormSubmit)
@@ -36,7 +34,6 @@ const renderCards = (dataArray) => {
 
         name.textContent = cardInfo.name.toUpperCase()
         idNum.textContent = cardInfo.id
-        console.log(name)
         imgContainer.append(idNum, img, name)
 
         img.src = cardInfo.image;
@@ -48,4 +45,15 @@ const renderCards = (dataArray) => {
     });
 };
 
+const addEventListenerToNavLinks = () => {
+    const navLinks = document.querySelectorAll(".nav-link");
 
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            console.log("clicking link")
+        })
+    })
+
+}
+
+addEventListenerToNavLinks()

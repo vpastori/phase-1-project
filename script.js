@@ -1,4 +1,3 @@
-console.log("script js works")
 const cardContainer = document.getElementById("card-container");
 let pokemonData = []
 

@@ -19,7 +19,8 @@ body {
 
 
 #navWrapper {
-    padding-top: 65px;
+    padding-right: 20px;
+    padding-top: 50px;
 }
 
 #card-container {
@@ -38,15 +39,14 @@ nav {
 ul#allNavLinks {
     display: flex;
     justify-content: space-between;
-    font-size: 1.5em;
+    font-size: 2em;
     width: 80%;
     font-weight: bold;
     text-decoration: underline;
 }
 
 .nav-link {
-    padding: 0 10px;
-    border-right: 3px solid rgb(255, 205, 39);
+    padding:10px;
 }
 
 .nav-link:last-child {

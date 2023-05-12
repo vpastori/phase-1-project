@@ -85,6 +85,7 @@ ul#allNavLinks {
     cursor: pointer;
 }
 
-#card-container div {
-    border: solid black;
+#card-container {
+    padding-right: 20px;
+    padding-left: 20px;
 }

@@ -34,7 +34,7 @@ const renderCards = (dataArray) => {
         const imgContainer = document.createElement("div");
         imgContainer.classList.add("pokemon");
         imgContainer.style.padding = "0";
-        imgContainer.style.border = "4px solid black"
+        imgContainer.style.border = "5px solid #3c5aa6";
         const img = document.createElement("img");
         const name = document.createElement("p");
         const idNum = document.createElement("p");
